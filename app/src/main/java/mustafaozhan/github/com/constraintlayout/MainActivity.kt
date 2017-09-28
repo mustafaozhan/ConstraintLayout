@@ -1,6 +1,5 @@
 package mustafaozhan.github.com.constraintlayout
 
-import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
@@ -37,12 +36,10 @@ class MainActivity : AppCompatActivity() {
 
             default = if (default) {
                 fullScreenEffect(it.id)
-                constraintLayout?.setBackgroundResource(R.color.blue_grey_700)
                 !default
 
             } else {
                 resetEffect()
-                constraintLayout?.setBackgroundResource(R.color.blue_grey_100)
                 !default
             }
 
