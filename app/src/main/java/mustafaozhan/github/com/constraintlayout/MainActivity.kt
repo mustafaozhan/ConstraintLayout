@@ -1,5 +1,6 @@
 package mustafaozhan.github.com.constraintlayout
 
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
@@ -32,10 +33,25 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+        imgLogo.setOnClickListener {
+
+            default = if (default) {
+                fullScreenEffect(it.id)
+                constraintLayout?.setBackgroundResource(R.color.blue_grey_700)
+                !default
+
+            } else {
+                resetEffect()
+                constraintLayout?.setBackgroundResource(R.color.blue_grey_100)
+                !default
+            }
+
+        }
 
     }
 
     private fun resetEffect() {
+
         TransitionManager.beginDelayedTransition(constraintLayout)
         resetConstraintSet.applyTo(constraintLayout)
     }
@@ -48,21 +64,27 @@ class MainActivity : AppCompatActivity() {
         applyConstraintSet.connect(id, ConstraintSet.RIGHT, R.id.main, ConstraintSet.RIGHT, 0)
         applyConstraintSet.connect(id, ConstraintSet.TOP, R.id.main, ConstraintSet.TOP, 0)
         applyConstraintSet.connect(id, ConstraintSet.BOTTOM, R.id.main, ConstraintSet.BOTTOM, 0)
+
         applyConstraintSet.applyTo(constraintLayout)
+
     }
 
     private fun hideOthers(id: Int) {
+
+        if (id == R.id.imgWallpaper)
+            applyConstraintSet.setVisibility(R.id.imgLogo, ConstraintSet.GONE)
+        else
+            applyConstraintSet.setVisibility(R.id.imgWallpaper, ConstraintSet.GONE)
+
+
         applyConstraintSet.setVisibility(R.id.btnCancel, ConstraintSet.GONE)
         applyConstraintSet.setVisibility(R.id.btnVote, ConstraintSet.GONE)
-        applyConstraintSet.setVisibility(R.id.imgWallpaper, ConstraintSet.GONE)
-        applyConstraintSet.setVisibility(R.id.imgLogo, ConstraintSet.GONE)
+
         applyConstraintSet.setVisibility(R.id.txtInformation, ConstraintSet.GONE)
         applyConstraintSet.setVisibility(R.id.txtName, ConstraintSet.GONE)
         applyConstraintSet.setVisibility(R.id.txtNameResult, ConstraintSet.GONE)
         applyConstraintSet.setVisibility(R.id.txtRelease, ConstraintSet.GONE)
         applyConstraintSet.setVisibility(R.id.txtReleaseResult, ConstraintSet.GONE)
-
-        applyConstraintSet.setVisibility(id, ConstraintSet.VISIBLE)
 
 
     }
