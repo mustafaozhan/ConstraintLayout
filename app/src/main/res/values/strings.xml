@@ -5,8 +5,10 @@
     <string name="information">Arch Linux is an independently developed, x86–64 general-purpose GNU/Linux distribution that strives to provide the latest stable versions of most software by following a rolling-release model. The default installation is a minimal base system, configured by the user to only add what is purposely required.</string>
     <string name="name_result">Arch Linux</string>
     <string name="release_date_result">2017.09.01 / Rolling Release</string>
-
-
+    <string name="vote">Vote</string>
+    <string name="cancel">Cancel</string>
+    <string name="wallpaper">Wallpaper</string>
+    <string name="logo">logo</string>
 
 
 </resources>
